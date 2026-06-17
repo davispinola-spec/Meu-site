@@ -1,1 +1,208 @@
 
+/* ==========================================================================
+   Configurações Globais e Variáveis
+   ========================================================================== */
+:root {
+    --cor-primaria: #2c5e3b;
+    --cor-primaria-escura: #1e4129;
+    --cor-fundo: #f4f7f4;
+    --cor-card-fundo: #ffffff;
+    --cor-texto: #2d3748;
+    --cor-destaque: #e2ebe4;
+    --transicao-suave: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.7;
+}
+
+/* ==========================================================================
+   Cabeçalho (Header)
+   ========================================================================== */
+header {
+    background: linear-gradient(135deg, var(--cor-primaria-escura) 0%, var(--cor-primaria) 100%);
+    color: white;
+    padding: 3.5rem 1rem;
+    text-align: center;
+}
+
+.header-container h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.5px;
+}
+
+.header-container p {
+    font-size: 1.15rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Navegação (Nav)
+   ========================================================================== */
+nav {
+    background-color: var(--cor-primaria-escura);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+}
+
+nav a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    padding: 0.5rem 1.25rem;
+    margin: 0 0.25rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transicao-suave);
+}
+
+nav a:hover {
+    background-color: var(--cor-primaria);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Estrutura de Layout e Conteúdo
+   ========================================================================== */
+.container {
+    max-width: 1100px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Seção Destaque (Hero) */
+.hero {
+    background-color: var(--cor-destaque);
+    padding: 2.5rem;
+    border-left: 6px solid var(--cor-primaria);
+    margin-bottom: 3rem;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.hero h2 {
+    color: var(--cor-primaria-escura);
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+}
+
+/* Grid de Cartões */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Cartões (Cards) */
+.card {
+    background: var(--cor-card-fundo);
+    padding: 2.25rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transicao-suave);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card h3 {
+    color: var(--cor-primaria);
+    font-size: 1.35rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--cor-fundo);
+}
+
+ul {
+    list-style-position: inside;
+    list-style-type: square;
+    color: #4a5568;
+}
+
+li {
+    margin-bottom: 0.75rem;
+}
+
+li strong {
+    color: var(--cor-texto);
+}
+
+/* Estilo customizado para o widget de JS inserido */
+.contador-box {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    background-color: var(--cor-destaque);
+    border-radius: 8px;
+    text-align: center;
+    border: 1px dashed var(--cor-primaria);
+    animation: fadeIn 1s ease-in;
+}
+
+/* ==========================================================================
+   Rodapé (Footer)
+   ========================================================================== */
+footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    margin-top: 6rem;
+    font-size: 0.9rem;
+}
+
+/* Animação Simples */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   Responsividade
+   ========================================================================== */
+@media (max-width: 680px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav a {
+        margin: 0.25rem 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-container h1 {
+        font-size: 2.2rem;
+    }
+
+    .container {
+        margin: 1.5rem auto;
+    }
+}
